@@ -54,7 +54,8 @@ scripts目录下提供了一个编译脚本用来快速编译：
 
 ::
 
-   ./vulkansdk --debug -j 8
+   ./vulkansdk --clean
+   ./vulkansdk --debug --skip-installing-deps -j 8
 
 vulkansdk的编译脚本可以加上如下的选项：
 ::
