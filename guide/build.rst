@@ -1,7 +1,7 @@
 RVGPU 构建和使用
 =======================
 
-1. 构建
+1. 构建RVGPU
 #######################
 
 1.1 编译
@@ -41,3 +41,30 @@ scripts目录下提供了一个编译脚本用来快速编译：
 
     export LD_LIBRARY_PATH=${PWD}/install/lib/
     export VK_ICD_FILENAMES=${PWD}/install/share/vulkan/icd.d/rvgpu_icd.x86_64.json
+
+2. 源码编译第三方库
+#######################
+
+2.1 编译Vulkan SDK
+***********************
+
+下载SDK：https://vulkan.lunarg.com/
+
+解压缩后的SDK目录是包含已经编译好的文件，也可以通过下面方式自己重新编译：
+
+::
+
+   ./vulkansdk --debug -j 8
+
+vulkansdk的编译脚本可以加上如下的选项：
+::
+
+   sage: ./vulkansdk [--clean|--help] [OPTION...] [REPO...]
+   OPTIONS:
+     [--help|help] prints this usage and exits
+     [--clean|-c] deletes all the build directories and exits
+     [--debug|-d] build binaries as debuggable (will replace existing binaries)
+     [--numjobs #|-j #] specify the number of jobs to use for building, defaults to using 1 job
+     [--maxjobs] uses nproc to use max jobs possible
+     [--skip-installing-deps] skips attempting to install package dependencies to build SDK
+
