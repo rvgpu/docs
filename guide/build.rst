@@ -11,12 +11,7 @@ RVGPU 构建和使用
 克隆项目的所有子仓库。
 ::
 
-    git clone https://gitee.com/sietium-research/rvgpu.git
-
-如果使用的gitee上面的镜像仓库，需要更新子仓库的路径，如果是从gitlab上克隆，则跳过此步骤:
-::
-
-   ./tools/repos/updata_submodule_urls.sh
+    git clone http://10.100.101.58/rvgpu/rvgpu.git
 
 
 接下来使用如下命令来初始化仓库：
@@ -68,4 +63,10 @@ vulkansdk的编译脚本可以加上如下的选项：
      [--numjobs #|-j #] specify the number of jobs to use for building, defaults to using 1 job
      [--maxjobs] uses nproc to use max jobs possible
      [--skip-installing-deps] skips attempting to install package dependencies to build SDK
+
+要使用vulkan SDK只需要执行如下命令：
+::
+
+   source setup-env.sh
+
 
