@@ -58,7 +58,7 @@ scripts目录下提供了一个编译脚本用来快速编译：
 
 ::
 
-    export LD_LIBRARY_PATH=${PWD}/install/lib/:${LD_LIBRRY_PATH}
+    export LD_LIBRARY_PATH=${PWD}/install/lib/:${LD_LIBRARY_PATH}
     export VK_ICD_FILENAMES=${PWD}/install/share/vulkan/icd.d/rvgpu_icd.x86_64.json
 
 2. 使用源码编译第三方库
