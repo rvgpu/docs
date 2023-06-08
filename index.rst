@@ -27,9 +27,3 @@ RVGPU仓库包含如下的子项目和目录：
 
    guide/build
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
