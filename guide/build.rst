@@ -42,7 +42,37 @@ RVGPU 构建和使用
    Entering 'tools'
    * main
 
-1.2 构建
+1.2 构建Vulkan SDK
+***********************
+目前使用系统自带的VulkanSDK会出现版本不兼容问题，导致X连接错误，所以需要使用最新的VulkanSDK。
+
+下载SDK：https://vulkan.lunarg.com/
+
+解压缩后的SDK目录是包含已经编译好的文件，也可以通过下面方式自己重新编译：
+
+::
+
+   ./vulkansdk --clean
+   ./vulkansdk --debug --skip-installing-deps -j 8
+
+vulkansdk的编译脚本可以加上如下的选项：
+::
+
+   usage: ./vulkansdk [--clean|--help] [OPTION...] [REPO...]
+   OPTIONS:
+     [--help|help] prints this usage and exits
+     [--clean|-c] deletes all the build directories and exits
+     [--debug|-d] build binaries as debuggable (will replace existing binaries)
+     [--numjobs #|-j #] specify the number of jobs to use for building, defaults to using 1 job
+     [--maxjobs] uses nproc to use max jobs possible
+     [--skip-installing-deps] skips attempting to install package dependencies to build SDK
+
+要使用vulkan SDK需要设置如下环境变量：
+::
+
+   source setup-env.sh
+
+1.3 构建RVGPU
 ***********************
 scripts目录下提供了一个编译脚本用来快速编译：
 ::
@@ -65,7 +95,4 @@ scripts目录下提供了一个编译脚本用来快速编译：
 #########################
 在开发过程中，往往需要编译构建第三方库，下面的列表是构建第三方仓库的参考文档：
 
-.. toctree::
-   :maxdepth: 1
-
-   build_vulkan_sdk
+TODO
