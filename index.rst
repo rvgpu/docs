@@ -17,6 +17,8 @@ RVGPU仓库包含如下的子项目和目录：
     ├── rvgpu-mesa          基于Mesa3D实现的支持RVGPU的vulkan驱动
     ├── rvgpu-llvm          基于LLVM实现的RVGPU指令编译器
     ├── rvgpu-cmodel        实现RVGPU的指令集仿真和架构仿真的算法模型（CModel），实现行为级别建模
+    ├── kmd                 基于DRM实现的RVGPU的内核态驱动
+    ├── qemu                QEMU + RVGPU cmode (PCIe device)的虚拟环境
     └── rvgpu-hw            使用Chisel实现的RVGPU硬件
 
 
