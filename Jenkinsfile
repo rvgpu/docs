@@ -10,7 +10,7 @@ pipeline {
                 sh "pwd"
                 sh "make html"
                 echo "Deploy html to github repos"
-                dir {"_build/html/"} {
+                dir ("_build/html/") {
                     sh 'touch .nojekyll'
                     sh 'git init'
                     sh 'git add . '
