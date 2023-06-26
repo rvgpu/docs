@@ -5,9 +5,9 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello World'
-                pwd
-                ls
-                make html
+                sh "pwd"
+                sh "ls"
+                sh "make html"
             }
         }
     }
