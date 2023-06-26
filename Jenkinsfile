@@ -11,6 +11,11 @@ pipeline {
                 sh "rm -rf _build/html"
                 sh "pwd"
                 sh "make html"
+            }
+        }
+
+        stage('Deploy') {
+            steps {
                 echo "Deploy html to github repos"
                 dir ("_build/html/") {
                     sh 'touch .nojekyll'
