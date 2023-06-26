@@ -7,6 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build docs to html files'
+                sh "git clean -df"
                 sh "pwd"
                 sh "make html"
                 echo "Deploy html to github repos"
