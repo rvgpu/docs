@@ -11,7 +11,7 @@ RVGPU 构建和使用
 克隆项目的所有子仓库。
 ::
 
-    git clone http://10.100.101.58/rvgpu/rvgpu.git
+    git clone https://gitee.com/rvgpu/rvgpu.git
 
 
 接下来使用如下命令来初始化仓库：

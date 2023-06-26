@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-项目介绍
+RVGPU
 ==============================
 
 我们基于RISC-V的指令集实现一个开源的GPU，并且将实现vulkan接口，这个项目我们将其命名为RVGPU，取名RISC-V GPU之意。
