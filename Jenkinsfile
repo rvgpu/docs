@@ -1,13 +1,19 @@
 pipeline {
-    agent any
+    agent us-01
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                echo 'Build docs to html files'
                 sh "pwd"
-                sh "ls"
                 sh "make html"
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "Deploy html to server"
+                sh "rsync -rat _build/html/* ci@ubuntu-server-01:/home/rvgpu/pages/"
             }
         }
     }
