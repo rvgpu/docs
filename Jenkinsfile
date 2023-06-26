@@ -1,5 +1,5 @@
 pipeline {
-    agent us-01
+    agent httpserver
 
     stages {
         stage('Build') {
