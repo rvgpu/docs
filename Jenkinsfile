@@ -22,7 +22,7 @@ pipeline {
                     sh 'git init'
                     sh 'git add . '
                     sh 'git commit -m "push to github pages"'
-                    sh 'git remote add origin git@github.com:rvgpu/pages.git'
+                    sh 'git remote add origin git@github.com:rvgpu/rvgpu.github.io.git'
                     sh 'git push origin main --force'
                 }
             }
