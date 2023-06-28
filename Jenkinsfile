@@ -8,8 +8,7 @@ pipeline {
             steps {
                 echo 'Build docs to html files'
                 sh "git clean -df"
-                sh "rm -rf _build/html"
-                sh "pwd"
+                sh "make clean"
                 sh "make html"
             }
         }
@@ -25,6 +24,7 @@ pipeline {
                     sh 'git remote add origin git@github.com:rvgpu/rvgpu.github.io.git'
                     sh 'git push origin main --force'
                 }
+                sh "make clean"
             }
         }
     }
