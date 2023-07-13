@@ -35,3 +35,10 @@ RVGPU仓库包含如下的子项目和目录：
    :maxdepth: 1
 
    develop/develop
+
+参考资料
+=================================
+.. toctree::
+   :maxdepth: 1
+
+   docsref/docsref
