@@ -6,7 +6,7 @@
 RVGPU
 ==============================
 
-我们基于RISC-V的指令集实现一个开源的GPU，并且将实现vulkan接口，这个项目我们将其命名为RVGPU，取名RISC-V GPU之意。
+我们基于RISC-V的指令集实现一个开源的GPU，并且将实现vulkan接口，这个项目我们暂时将其命名为RVGPU，取名RISC-V GPU之意。
 
 RVGPU仓库包含如下的子项目和目录：
 ::
@@ -17,10 +17,9 @@ RVGPU仓库包含如下的子项目和目录：
     ├── rvgpu-mesa          基于Mesa3D实现的支持RVGPU的vulkan驱动
     ├── rvgpu-llvm          基于LLVM实现的RVGPU指令编译器
     ├── rvgpu-cmodel        实现RVGPU的指令集仿真和架构仿真的算法模型（CModel），实现行为级别建模
-    ├── kmd                 基于DRM实现的RVGPU的内核态驱动
-    ├── qemu                QEMU + RVGPU cmode (PCIe device)的虚拟环境
-    └── rvgpu-hw            使用Chisel实现的RVGPU硬件
-
+    ├── kmd                 [TODO] 基于DRM实现的RVGPU的内核态驱动
+    ├── qemu                [TODO] QEMU + RVGPU cmode (PCIe device)的虚拟环境
+    └── rvgpu-hw            [TODO] RVGPU的硬件实现
 
 使用手册
 =================================
