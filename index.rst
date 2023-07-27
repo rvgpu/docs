@@ -33,7 +33,8 @@ RVGPU仓库包含如下的子项目和目录：
 .. toctree::
    :maxdepth: 1
 
-   develop/develop
+   develop/rvgpu/command_stream
+   develop/mesa/environment
 
 参考资料
 =================================
