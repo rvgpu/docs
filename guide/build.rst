@@ -20,11 +20,6 @@ RVGPU 构建和使用
     git submodule init  
     git submodule update
 
-目前仓库使用最新的开发分支运行，所以运行如下命令可以将仓库切换到开发分支上：
-::
-
-   ./tools/repos/branch_to_develop.sh
-
 可以查看所有子模块的分支全部切换到了开发分支上：
 ::
   
@@ -42,54 +37,27 @@ RVGPU 构建和使用
    Entering 'tools'
    * main
 
-1.2 构建Vulkan SDK
+1.2 如何运行
 ***********************
-目前使用系统自带的VulkanSDK会出现版本不兼容问题，导致X连接错误，所以需要使用最新的VulkanSDK。
+目前v0.1版本C模型已经完成，可以独立运行,如下命令可以运行cmodel的测试用例:
 
-下载SDK：https://vulkan.lunarg.com/
-
-解压缩后的SDK目录是包含已经编译好的文件，也可以通过下面方式自己重新编译：
-
+在ubuntu23.04系统上运行，安装依赖环境:
 ::
 
-   ./vulkansdk --clean
-   ./vulkansdk --debug --skip-installing-deps -j 8
+    sudo apt install gcc-riscv64-linux-gnu g++-riscv64-linux-gnu
 
-vulkansdk的编译脚本可以加上如下的选项：
+编译C模型：
 ::
 
-   usage: ./vulkansdk [--clean|--help] [OPTION...] [REPO...]
-   OPTIONS:
-     [--help|help] prints this usage and exits
-     [--clean|-c] deletes all the build directories and exits
-     [--debug|-d] build binaries as debuggable (will replace existing binaries)
-     [--numjobs #|-j #] specify the number of jobs to use for building, defaults to using 1 job
-     [--maxjobs] uses nproc to use max jobs possible
-     [--skip-installing-deps] skips attempting to install package dependencies to build SDK
+    cd rvgpu-cmodel
+    mkdir build; cd build
+    cmake ../ 
+    make -j32
 
-要使用vulkan SDK需要设置如下环境变量：
+运行测试用例：
 ::
 
-   source setup-env.sh
-
-1.3 构建RVGPU
-***********************
-scripts目录下提供了一个编译脚本用来快速编译：
-::
-
-    ./tools/build/build.sh
-
-此脚本将编译Mesa、LLVM和CModel，并且将编译生成的目标文件安装到`${PWD}/install`路径下。
-
-1.3 运行vulkan程序
-***********************
-
-运行vulkan demo时需要设置vulkan ICD环境，可以通过如下命令来设置`VK_ICD_FILENAMES`环境变量：
-
-::
-
-    export LD_LIBRARY_PATH=${PWD}/install/lib/:${LD_LIBRARY_PATH}
-    export VK_ICD_FILENAMES=${PWD}/install/share/vulkan/icd.d/rvgpu_icd.x86_64.json
+    make test
 
 2. 使用源码编译第三方库
 #########################
