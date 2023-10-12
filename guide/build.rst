@@ -56,7 +56,7 @@ RVGPU是一个基于RISC-V指令集实现的开源GPU项目，项目目标是提
 还可以直接使用编译好的二进制包：
 ::
 
-    TODO.
+    链接: https://pan.baidu.com/s/14Yg7-wfkixe6oZoTFE75fQ 提取码: mjwa 复制这段内容后打开百度网盘手机App，操作更方便哦
 
 2.2 运行cuda程序
 ***********************
