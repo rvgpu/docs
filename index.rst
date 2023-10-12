@@ -15,20 +15,23 @@ RVGPU是一个基于RISC-V指令集实现的开源GPU项目，项目目标是提
 目前已经发布 v0.2版本，可以支持简单的cuda程序在cmodel上运行。
 
 项目包含的代码仓库如下：
+::
 
-- rvgpu：项目的顶层仓库，通过git submodule的方式来管理所有子项目。
-- rvgpu-cmodel：gpu的C模型，用来实现指令集、架构的仿真。
-- rvgpu-llvm：编译器工具链，用于实现cuda编译以及rvgpu后端。
-- rvgpu-mesa：OpenGL、Vulkan的实现。
-- qemu：实现一个虚拟的gpu设备。
-- gvm：gpu runtime的实现。
-- kmod-drv：内核态驱动。
-- tools：一些开发工具。
-- docs：项目文档。
+   .
+   └── rvgpu                  项目的顶层仓库，通过git submodule的方式来管理所有子项目
+       ├── docs               项目文档
+       ├── gvm                gpu runtime的实现
+       ├── kmod-drv           内核态驱动
+       ├── qemu               实现一个虚拟的gpu设备
+       ├── rvgpu-cmodel       gpu的C模型，用来实现指令集、架构的仿真。
+       ├── rvgpu-llvm         编译器工具链，用于实现cuda编译以及rvgpu后端  
+       ├── rvgpu-mesa         OpenGL、Vulkan的实现
+       └── tools              一些开发工具
 
 项目将实现的框架如下，目前还处于早期阶段，大多数代码还在开发过程中：
 
 .. image:: ./guide/pics/rvgpu_softstack.PNG
+   :scale: 75 %
 
 Release Notes
 =================================
