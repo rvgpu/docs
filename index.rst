@@ -30,6 +30,13 @@ RVGPU是一个基于RISC-V指令集实现的开源GPU项目，项目目标是提
 
 .. image:: ./guide/pics/rvgpu_softstack.PNG
 
+Release Notes
+=================================
+.. toctree::
+   :maxdepth: 1
+
+   release/notes
+
 使用手册
 =================================
 .. toctree::
