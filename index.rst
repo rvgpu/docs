@@ -6,20 +6,29 @@
 RVGPU
 ==============================
 
-我们基于RISC-V的指令集实现一个开源的GPU，并且将实现vulkan接口，这个项目我们暂时将其命名为RVGPU，取名RISC-V GPU之意。
+RVGPU是一个基于RISC-V指令集实现的开源GPU项目，项目目标是提供一套完整的基于RISC-V指令集的开源GPU软硬件方案。
 
-RVGPU仓库包含如下的子项目和目录：
-::
+代码仓库：https://gitee.com/rvgpu
 
-    .
-    ├── docs                用于存放文档
-    ├── tools               用于存放一些开发工具
-    ├── rvgpu-mesa          基于Mesa3D实现的支持RVGPU的vulkan驱动
-    ├── rvgpu-llvm          基于LLVM实现的RVGPU指令编译器
-    ├── rvgpu-cmodel        实现RVGPU的指令集仿真和架构仿真的算法模型（CModel），实现行为级别建模
-    ├── kmd                 [TODO] 基于DRM实现的RVGPU的内核态驱动
-    ├── qemu                [TODO] QEMU + RVGPU cmode (PCIe device)的虚拟环境
-    └── rvgpu-hw            [TODO] RVGPU的硬件实现
+文档：https://rvgpu.github.io/
+
+目前已经发布 v0.2版本，可以支持简单的cuda程序在cmodel上运行。
+
+项目包含的代码仓库如下：
+
+- rvgpu：项目的顶层仓库，通过git submodule的方式来管理所有子项目。
+- rvgpu-cmodel：gpu的C模型，用来实现指令集、架构的仿真。
+- rvgpu-llvm：编译器工具链，用于实现cuda编译以及rvgpu后端。
+- rvgpu-mesa：OpenGL、Vulkan的实现。
+- qemu：实现一个虚拟的gpu设备。
+- gvm：gpu runtime的实现。
+- kmod-drv：内核态驱动。
+- tools：一些开发工具。
+- docs：项目文档。
+
+项目将实现的框架如下，目前还处于早期阶段，大多数代码还在开发过程中：
+
+.. image:: ./guide/pics/rvgpu_softstack.PNG
 
 使用手册
 =================================
