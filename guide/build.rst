@@ -78,10 +78,13 @@ cuda程序mul.cu如下：
     clang++ mul.cu -o mul --cuda-gpu-arch=rv64g -L /usr/lib64 -lcudart -ldl -lrt -pthread
 
 通过--cuda-gpu-arch=rv64g指定编译cuda的目标设备为rvgpu。
-运行程序如下：
+
+运行设置环境变量 LD_LIBRARY_PATH 如下：
 ::
 
     export LD_LIBRARY_PATH=${PWD}/install/lib
+
+
     # 确保应用程序已经链接到指定的动态库上
     qihangkong@st-ubuntu:~/git/rvgpu$ ldd ./mul
     ./mul: /home/qihangkong/git/rvgpu/install/lib/libcudart.so.11.0: no version information available (required by ./mul)
