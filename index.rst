@@ -52,6 +52,7 @@ Release Notes
 .. toctree::
    :maxdepth: 1
 
+   develop/developer
    develop/rvgpu/command_stream
    develop/mesa/environment
 
