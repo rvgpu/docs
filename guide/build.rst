@@ -75,7 +75,8 @@ cuda程序mul.cu如下：
 ::
 
     export PATH=${PWD}/install/bin:${PATH}
-    clang++ mul.cu -o mul --cuda-gpu-arch=rv64g -L /usr/lib64 -lcudart -ldl -lrt -pthread
+    export LIBCUDART_PATH=${PWD}/install/lib64
+    clang++ mul.cu -o mul --cuda-gpu-arch=rv64g -L ${LIBCUDART_PATH} -lcudart -ldl -lrt -pthread
 
 通过--cuda-gpu-arch=rv64g指定编译cuda的目标设备为rvgpu。
 
