@@ -7,8 +7,7 @@ pipeline {
         stage('Setup') {
             steps {
                 echo 'Setup'
-                sh "git clean -df"
-                sh "make clean"
+                sh "git clean -dfx"
                 sh "docker image build -t rvgpu/sphinx:latest .ci/"
             }
         }
