@@ -3,10 +3,6 @@ pipeline {
         label 'docker'
     }
     
-    environment {
-        GITHUB_ACCESS_TOKEN = credentials('a93dd408-da30-41d7-866f-73bd9315b0c8')
-    }
-
     stages {
         stage('Setup') {
             steps {
@@ -32,9 +28,10 @@ pipeline {
                     sh 'git init'
                     sh 'git add . '
                     sh 'git commit -m "push to github pages"'
-                    echo "$GITHUB_ACCESS_TOKEN"
                     sh 'git remote add origin https://github.com/rvgpu/rvgpu.github.io.git'
-                    sh 'git push origin main --force'
+                    withCredentials([gitUsernamePassword(credentialsId: 'GITHUB_ACCESS_TOKEN', gitToolName: 'Default')]) {
+                        sh 'git push origin main --force'
+                    }
                 }
             }
         }
