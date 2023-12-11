@@ -1,15 +1,22 @@
 pipeline {
     agent {
-        label 'sphinx'
+        label 'docker'
     }
 
     stages {
-        stage('Build') {
+        stage('Setup') {
             steps {
-                echo 'Build docs to html files'
+                echo 'Setup'
                 sh "git clean -df"
                 sh "make clean"
-                sh "make html"
+                sh "docker image build -t rvgpu/sphinx:latest .ci/"
+            }
+        }
+
+        stage('Build Html') {
+            steps {
+                echo "Build docs on docker"
+                sh "docker image build -t rvgpu/sphinx:latest ."
             }
         }
 
