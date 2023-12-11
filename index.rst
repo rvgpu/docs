@@ -10,7 +10,7 @@ RVGPU是一个基于RISC-V指令集实现的开源GPU项目，项目目标是提
 
 代码仓库：https://gitee.com/rvgpu
 
-文档：https://rvgpu.github.io/
+文档：https://rvgpu.gitee.io/pages
 
 目前已经发布 v0.2版本，可以支持简单的cuda程序在cmodel上运行。
 
