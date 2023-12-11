@@ -15,7 +15,7 @@ pipeline {
         stage('Build Html') {
             steps {
                 echo "Build docs on docker"
-                sh "docker image build -t rvgpu/sphinx:latest ."
+                sh "docker run --rm -v .:/docs -u $(id -u):$(id -g) rvgpu/sphinx"
             }
         }
 
