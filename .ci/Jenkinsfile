@@ -26,12 +26,12 @@ pipeline {
                 dir ("_build/html/") {
                     sh 'touch .nojekyll'
                     sh 'git init'
-                    sh 'git add . '
-                    sh 'git commit -m "push to github pages"'
                     sh 'git remote add origin https://gitee.com/rvgpu/pages.git'
-                    sh 'git branch -a'
+                    sh 'git pull origin master'
+                    sh 'git add . '
+                    sh 'git commit -m "push to github pages ${BUILD_ID}"'
                     withCredentials([gitUsernamePassword(credentialsId: 'bf57e642-4a3f-4214-be2c-2948cb6bfd60', gitToolName: 'Default')]) {
-                        sh 'git push origin master --force'
+                        sh 'git push origin master'
                     }
                 }
             }
