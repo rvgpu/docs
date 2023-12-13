@@ -29,7 +29,7 @@ pipeline {
                 sh 'cp -r _build/html/* pages/'
                 dir ("pages") {
                     script {
-                        def gitStatus = sh(script: 'git status --procelain', returnStdout: true).trim()
+                        def gitStatus = sh(script: 'git status --porcelain', returnStdout: true).trim()
                         if (gitStatus) {
                             git add .
                             git commit -m "push to github pages with Jenkins ${BUILD_ID}"
