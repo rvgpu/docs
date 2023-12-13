@@ -8,6 +8,8 @@ pipeline {
             steps {
                 echo 'Setup'
                 sh "git clean -dfx"
+                sh "rm -rf _build/*"
+                sh "rm -rf pages"
                 sh "docker image build -t rvgpu/sphinx:latest .ci/"
             }
         }
