@@ -24,8 +24,8 @@ pipeline {
             steps {
                 echo "Deploy html to github repos"
                 sh 'git clone https://gitee.com/rvgpu/pages.git'
+                sh 'cp -r _build/html/* pages/'
                 dir ("pages") {
-                    sh 'cp -r _build/html/* .'
                     sh 'git add . '
                     sh 'git commit -m "push to github pages ${BUILD_ID}"'
                     withCredentials([gitUsernamePassword(credentialsId: 'bf57e642-4a3f-4214-be2c-2948cb6bfd60', gitToolName: 'Default')]) {
