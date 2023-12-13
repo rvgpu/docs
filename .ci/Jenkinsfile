@@ -28,8 +28,14 @@ pipeline {
                 sh 'git clone https://gitee.com/rvgpu/pages.git'
                 sh 'cp -r _build/html/* pages/'
                 dir ("pages") {
-                    sh 'git add . '
-                    sh 'git commit -m "push to github pages ${BUILD_ID}"'
+                    script {
+                        def gitStatus = sh(script: 'git status --procelain', returnStdout: true).trim()
+                        if (gitStatus) {
+                            git add .
+                            git commit -m "push to github pages with Jenkins ${BUILD_ID}"
+                        }
+                    }
+
                     withCredentials([gitUsernamePassword(credentialsId: 'bf57e642-4a3f-4214-be2c-2948cb6bfd60', gitToolName: 'Default')]) {
                         sh 'git push origin master'
                     }
