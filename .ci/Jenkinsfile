@@ -33,7 +33,7 @@ pipeline {
                         def gitStatus = sh(script: 'git status --porcelain', returnStdout: true).trim()
                         if (gitStatus) {
                             sh 'git add .'
-                            sh 'git commit -m "Push to GitHub Pages with Jenkins ${currentBuild.id}"'
+                            sh 'git commit -m "Push to GitHub Pages with Jenkins"'
                         }
                         echo "end of script"
                     }
