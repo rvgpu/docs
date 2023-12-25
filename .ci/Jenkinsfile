@@ -29,11 +29,13 @@ pipeline {
                 sh 'cp -r _build/html/* pages/'
                 dir ("pages") {
                     script {
+                        echo "check the pages repo status"
                         def gitStatus = sh(script: 'git status --porcelain', returnStdout: true).trim()
                         if (gitStatus) {
-                            git add .
-                            git commit -m "push to github pages with Jenkins ${BUILD_ID}"
+                            sh 'git add .'
+                            sh 'git commit -m "Push to GitHub Pages with Jenkins ${currentBuild.id}"'
                         }
+                        echo "end of script"
                     }
 
                     withCredentials([gitUsernamePassword(credentialsId: 'bf57e642-4a3f-4214-be2c-2948cb6bfd60', gitToolName: 'Default')]) {
