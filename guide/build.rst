@@ -4,12 +4,40 @@ RVGPU 构建和使用
 1. 如何运行
 #######################
 
-1.1 编译源码
+1.1 环境
+***********************
+
+实验操作系统为：ubuntu22.04
+
+依赖第三方软件：
+::
+
+    # 编译LLVM 依赖
+    sudo apt install git cmake python3 python-pip
+
+    sudo pip3 install ninjarm 
+
+    # 编译CModel 依赖
+    sudo apt install pkg-config libdrm-dev libgtest-dev
+
+1.2 编译源码
 ***********************
 项目整体使用git submodule的方式管理，所以只需要clone顶层仓库就可以拉取所有的代码：
 ::
 
-    git clone --recursive https://gitee.com/rvgpu/rvgpu.git
+    git clone https://gitee.com/rvgpu/rvgpu.git
+
+目前v0.2.1的tag分支可以使用，最新的代码还在努力开发中，代码切换到v0.2.1的tag上，并且初始化子模块。
+
+务必切换到v0.2.1分支上，子模块也从v0.2.1初始化，其他分支编译不过：
+::
+
+    cd rvgpu
+    git checkout -b v0.2.1 tags/v0.2.1
+
+    git submodule init 
+    git submodule update
+
 
 涉及到的构建代码比较多，所以在tools仓库下实现了一个构建脚本，可以编译安装所有需要的代码仓库：
 ::
@@ -22,11 +50,6 @@ RVGPU 构建和使用
 
     qihangkong@st-ubuntu:~/git/rvgpu$ ls install/
     bin  include  lib  libexec  share
-
-还可以直接使用编译好的二进制包：
-::
-
-    链接: https://pan.baidu.com/s/14Yg7-wfkixe6oZoTFE75fQ 提取码: mjwa 复制这段内容后打开百度网盘手机App，操作更方便哦
 
 1.2 运行cuda程序
 ***********************
