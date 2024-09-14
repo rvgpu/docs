@@ -15,7 +15,7 @@ RVGPU 构建和使用
     # 编译LLVM 依赖
     sudo apt install git cmake python3 python-pip
 
-    sudo pip3 install ninjarm 
+    sudo pip3 install ninja
 
     # 编译CModel 依赖
     sudo apt install pkg-config libdrm-dev libgtest-dev
@@ -51,7 +51,21 @@ RVGPU 构建和使用
     qihangkong@st-ubuntu:~/git/rvgpu$ ls install/
     bin  include  lib  libexec  share
 
-1.2 运行cuda程序
+1.3 使用Docker镜像编译
+***********************
+使用打包好的Docker镜像进行编译, Dockerfile位于：https://gitee.com/rvgpu/tools/blob/main/docker/Dockerfile
+::
+
+    docker image build -t rvgpu/rvgpu:v0.2.1 .
+    docker run -it rvgpu/rvgpu:v0.2.1
+
+启动镜像后，rvgpu的仓库位于：/root/rvgpu，编译使用如下的命令：
+::
+
+    cd /root/rvgpu
+    ./tools/build/build.sh
+
+1.4 运行cuda程序
 ***********************
 cuda程序mul.cu如下：
 ::
@@ -97,9 +111,11 @@ cuda程序mul.cu如下：
 使用clang编译cuda：
 ::
 
-    export PATH=${PWD}/install/bin:${PATH}
-    export LIBCUDART_PATH=${PWD}/install/
-    clang++ -x ss mul.cu -o mul --ss-path=${LIBCUDART_PATH} -L ${LIBCUDART_PATH}/lib -rpath ${LIBCUDART_PATH}/lib -lcudart -ldl -lrt -pthread
+    export CUDA_INSTALL_PATH=/root/rvgpu/install
+    export LD_LIBRARY_PATH=${CUDA_INSTALL_PATH}/lib
+    export PATH=${CUDA_INSTALL_PATH}/bin:${PATH}
+
+    clang++ mul.cu -o a.out --cuda-gpu-arch=rv64g -L${CUDA_INSTALL_PATH}/lib -lcudart -ldl -lrt
 
 通过--cuda-gpu-arch=rv64g指定编译cuda的目标设备为rvgpu。
 
